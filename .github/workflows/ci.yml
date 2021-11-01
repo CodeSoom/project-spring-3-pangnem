@@ -34,7 +34,7 @@ jobs:
       - name: Docker build
         run: |
           sudo docker build -t dev-share .
-          sudo docker login -u ${{ secrets.USERNAME }} -p ${{ secrets.PASSWORD }}
+          sudo winpty docker login -u ${{ secrets.USERNAME }} -p ${{ secrets.PASSWORD }}
           sudo docker tag dev-share pangnem/dev-share:${GITHUB_SHA::7}
           sudo docker push pangnem/dev-share:${GITHUB_SHA::7}
 
